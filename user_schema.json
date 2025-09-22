@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/user_schema.json",
+  "title": "User document schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "birthdate": {
+      "type": "string",
+      "format": "date-time",
+      "$comment": "RFC 3339 / ISO 8601 date-time string, e.g., 2003-05-02T00:00:00-04:00"
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "$comment": "Timestamp of account creation"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "uid": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "$comment": "Firebase Auth UID (up to 128 chars)."
+    },
+    "username": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "birthdate",
+    "created_time",
+    "display_name",
+    "email",
+    "photo_url",
+    "uid",
+    "username"
+  ],
+  "examples": [
+    {
+      "birthdate": "2003-05-02T00:00:00-04:00",
+      "created_time": "2024-06-17T05:55:17-04:00",
+      "display_name": "Casey",
+      "email": "casey@mail.com",
+      "photo_url": "https://firebasestorage.googleapis.com/v0/wyz",
+      "uid": "5QJ30SbaohTD45Zb3DuijTbmKIxx",
+      "username": "caseyX123"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/task_schema.json",
+  "title": "Task document schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "completed": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "$comment": "RFC 3339 / ISO 8601 date-time string, e.g., 2024-06-19T10:05:53-04:00"
+    },
+    "details": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user": {
+      "type": "string",
+      "pattern": "^/users/[A-Za-z0-9_-]+$",
+      "$comment": "Reference path to a user document, e.g., /users/{docId}"
+    }
+  },
+  "required": ["completed", "created", "details", "title", "user"],
+  "examples": [
+    {
+      "completed": true,
+      "created": "2024-06-19T10:05:53-04:00",
+      "details": "We are testing add task, but still have more to go.",
+      "title": "Finish This App",
+      "user": "/users/DJEwXBO3dxfbPVHpfl6ZmqWpkJxx"
+    }
+  ]
+}
